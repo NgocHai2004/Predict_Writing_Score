@@ -14,6 +14,7 @@ def main():
     y = data["writing score"]
     x_train,x_test,y_train,y_test = Split_Data(x,y).split_train_test()
     
+    # Tên các feature cùng với kiểu
     nom = ["gender","race/ethnicity","lunch","test preparation course"]
     num = ["math score","reading score"]
     ord = ["parental level of education"]
@@ -25,7 +26,7 @@ def main():
     nom_processor_train = Processer_Nominal(x_train[nom]).process_nom()
     x_train = np.hstack((ord_processor_train,num_processor_train,nom_processor_train))
 
-    # sử lí dữ liệu phần x_test
+    # Xử lí dữ liệu phần x_test
     num_processor_test = Processer_Numerical(x_test[num]).process_num()
     ord_processor_test = Processer_Ordinal(x_test[ord],level).process_ord()
     nom_processor_test = Processer_Nominal(x_test[nom]).process_nom()
@@ -34,12 +35,12 @@ def main():
 
     model = data_use_model(x_train,y_train,LinearRegression())
     y_pred = model.predict(x_test)
-    # for i,j in zip(y_pred,y_test):
-    #     print(f"{i:.0f}------{j}")
+    for i,j in zip(y_pred,y_test):
+        print(f"Lúc sau:{i:.0f}--- Ban đầu:{j}")
     
-    t = ["female","group B","bachelor's degree","standard","none",52,72]
-    te = pd.DataFrame([t],columns=["gender","race/ethnicity","parental level of education","lunch","test preparation course","math score","reading score"])
-    print(te)
+    # t = ["female","group B","bachelor's degree","standard","none",52,72]
+    # te = pd.DataFrame([t],columns=["gender","race/ethnicity","parental level of education","lunch","test preparation course","math score","reading score"])
+    # print(te)
    
     
     

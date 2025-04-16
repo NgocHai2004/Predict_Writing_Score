@@ -30,8 +30,9 @@ class Processer_Numerical(Processer_Data):
 # Lớp xử lý dữ liệu ordinal (thứ bậc)
 class Processer_Ordinal(Processer_Data):
     def __init__(self, x, level):
+        '''Các cấp độ (level) của dữ liệu ordinal'''
         super().__init__(x)  # Khởi tạo lớp cha
-        self.level = level  # Các cấp độ (level) của dữ liệu ordinal
+        self.level = level  
 
     def type_process_ord(self):
         '''Trả về pipeline xử lý dữ liệu ordinal: điền giá trị thiếu và mã hóa thứ tự'''
