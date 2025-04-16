@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2025-04-15T03:22:20.836Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.8 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="ddDJg-fwN-pzs-dUFd1v" version="24.4.8" type="device" pages="5">
+<mxfile host="Electron" modified="2025-04-16T18:33:15.953Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.8 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="JX-6SIrps62cd5-7OPZj" version="24.4.8" type="device" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Tổng quát">
     <mxGraphModel dx="1843" dy="899" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -23,7 +23,7 @@
           <mxGeometry x="43" y="388" width="130" height="60" as="geometry" />
         </mxCell>
         <mxCell id="M1dzH-1qpOmIZBmuw4IR-9" value="Xử lí dữ liệu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="384" y="435" width="120" height="60" as="geometry" />
+          <mxGeometry x="390" y="357" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="M1dzH-1qpOmIZBmuw4IR-54" value="Chọn và sử dụng model" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="611" y="692" width="120" height="60" as="geometry" />
@@ -135,6 +135,9 @@
         <mxCell id="e1x1pfEg6JPdfP428Dth-23" value="Dữ liệu thiếu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="386" y="650" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="vQgcHrkvmkmmzGWXPHQL-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="e1x1pfEg6JPdfP428Dth-24" target="vQgcHrkvmkmmzGWXPHQL-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="e1x1pfEg6JPdfP428Dth-24" value="Trực quan hóa" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="154" y="760" width="120" height="60" as="geometry" />
         </mxCell>
@@ -153,34 +156,8 @@
         <mxCell id="e1x1pfEg6JPdfP428Dth-29" value="Imputer" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
           <mxGeometry x="415" y="763" width="120" height="60" as="geometry" />
         </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-  <diagram id="Ouua8gEAnA6AIoG35LeK" name="Chọn và xử dụng model">
-    <mxGraphModel dx="1290" dy="629" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="q3-c9DKiAnMPpWCR-IHk-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="q3-c9DKiAnMPpWCR-IHk-1" target="q3-c9DKiAnMPpWCR-IHk-2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="q3-c9DKiAnMPpWCR-IHk-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="q3-c9DKiAnMPpWCR-IHk-2" target="q3-c9DKiAnMPpWCR-IHk-4">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="q3-c9DKiAnMPpWCR-IHk-1" value="Chọn và sử dụng model" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-          <mxGeometry x="268" y="414" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="q3-c9DKiAnMPpWCR-IHk-2" value="Chọn Model" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-          <mxGeometry x="268" y="251" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="2Oflk78I3JG9S1ymtRIa-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="q3-c9DKiAnMPpWCR-IHk-4" target="2Oflk78I3JG9S1ymtRIa-1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="q3-c9DKiAnMPpWCR-IHk-4" value="Chọn tham số model" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-          <mxGeometry x="477" y="251" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="2Oflk78I3JG9S1ymtRIa-1" value="Huấn luyện" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-          <mxGeometry x="677" y="251" width="120" height="60" as="geometry" />
+        <mxCell id="vQgcHrkvmkmmzGWXPHQL-3" value="OrdinalEncoder" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="154" y="900" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
@@ -190,8 +167,20 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="dmT9gQbatIBz-T7THg5Y-1" value="Đánh giá" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="OXikDmyRVdxNwEpfGofU-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dmT9gQbatIBz-T7THg5Y-1" target="OXikDmyRVdxNwEpfGofU-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dmT9gQbatIBz-T7THg5Y-1" value="Đánh giá" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="364" y="296" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OXikDmyRVdxNwEpfGofU-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="OXikDmyRVdxNwEpfGofU-1" target="OXikDmyRVdxNwEpfGofU-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OXikDmyRVdxNwEpfGofU-1" value="Với LinerRegression" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="364" y="436" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OXikDmyRVdxNwEpfGofU-3" value="Dùng zip print sau khi train so sánh y predict với y_test" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="364" y="576" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
