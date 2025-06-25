@@ -1,49 +1,64 @@
-from Read_report import Read_File_CSV
-from Split_data import Split_Data 
-from Processer_data import Processer_Data,Processer_Nominal,Processer_Numerical,Processer_Ordinal,data_use_model
-from sklearn.metrics import classification_report
-from sklearn.linear_model import LinearRegression
-import os
-import numpy as np
 import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, OrdinalEncoder, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+import joblib
+# Load data
+data = pd.read_csv("StudentScore.xls")  # hoặc Read_File_CSV() nếu bạn có
 
-def main():
-    path = os.path.abspath("StudentScore.xls")
-    data = Read_File_CSV(path).read()
-    x = data.drop(columns=["writing score"])
-    y = data["writing score"]
-    x_train,x_test,y_train,y_test = Split_Data(x,y).split_train_test()
-    
-    # Tên các feature cùng với kiểu
-    nom = ["gender","race/ethnicity","lunch","test preparation course"]
-    num = ["math score","reading score"]
-    ord = ["parental level of education"]
-    level = [["some high school", "high school", "some college", "associate's degree", "bachelor's degree", "master's degree"]]
-    
-    # Xử lí dữ liệu phần x_train
-    num_processor_train = Processer_Numerical(x_train[num]).process_num()
-    ord_processor_train = Processer_Ordinal(x_train[ord],level).process_ord()
-    nom_processor_train = Processer_Nominal(x_train[nom]).process_nom()
-    x_train = np.hstack((ord_processor_train,num_processor_train,nom_processor_train))
+X = data.drop(columns=["writing score"])
+y = data["writing score"]
 
-    # Xử lí dữ liệu phần x_test
-    num_processor_test = Processer_Numerical(x_test[num]).process_num()
-    ord_processor_test = Processer_Ordinal(x_test[ord],level).process_ord()
-    nom_processor_test = Processer_Nominal(x_test[nom]).process_nom()
-    x_test = np.hstack((ord_processor_test,num_processor_test,nom_processor_test))
+# Tách train-test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
+# Định nghĩa cột
+num_cols = ["math score", "reading score"]
+ord_cols = ["parental level of education"]
+nom_cols = ["gender", "race/ethnicity", "lunch", "test preparation course"]
 
-    model = data_use_model(x_train,y_train,LinearRegression())
-    y_pred = model.predict(x_test)
-    for i,j in zip(y_pred,y_test):
-        print(f"Lúc sau:{i:.0f}--- Ban đầu:{j}")
-    
-    # t = ["female","group B","bachelor's degree","standard","none",52,72]
-    # te = pd.DataFrame([t],columns=["gender","race/ethnicity","parental level of education","lunch","test preparation course","math score","reading score"])
-    # print(te)
-   
-    
-    
+# Giá trị ordinal theo thứ tự
+ord_levels = [["some high school", "high school", "some college", "associate's degree", "bachelor's degree", "master's degree"]]
+
+# Tạo transformer cho từng loại biến
+preprocessor = ColumnTransformer(transformers=[
+    ('num', StandardScaler(), num_cols),
+    ('ord', OrdinalEncoder(categories=ord_levels), ord_cols),
+    ('nom', OneHotEncoder(handle_unknown='ignore'), nom_cols)
+])
+
+# Tạo pipeline tổng: tiền xử lý + model
+pipeline = Pipeline(steps=[
+    ('preprocess', preprocessor),
+    ('regressor', LinearRegression())
+])
+
+# Train
+pipeline.fit(X_train, y_train)
+joblib.dump(pipeline, "diabetes_pipeline.pkl")
+
+# Dự đoán
+# y_pred = pipeline.predict(X_test)
 
 
-main()
+# # Đánh giá
+# # print(f"MAE: {mean_absolute_error(y_test, y_pred):.2f}")
+# # print(f"MSE: {mean_squared_error(y_test, y_pred):.2f}")
+# # print(f"R^2: {r2_score(y_test, y_pred):.2f}")
+
+# # Dự đoán thử 1 dòng mới
+# sample = pd.DataFrame([{
+#     "gender": "female",
+#     "race/ethnicity": "group B",
+#     "parental level of education": "bachelor's degree",
+#     "lunch": "standard",
+#     "test preparation course": "none",
+#     "math score": 52,
+#     "reading score": 72
+# }])
+
+# sample_pred = pipeline.predict(sample)
+# print(f"Dự đoán cho mẫu mới: {sample_pred[0]:.0f}")
